@@ -46,18 +46,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
         self.navigationController?.navigationBar.backItem?.title = "Custom"
     }
-//    let hostingController = UIHostingController(rootView: MySwiftUIView())
-//    func openSwiftUIOnboardingScreen() {
-//        addChild(hostingController)
-//        view.addSubview(hostingController.view)
-//
-//        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-//        hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        hostingController.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-//        hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-//        hostingController.didMove(toParent: self)
-//    }
     
     private func setUpConstraits() {
         mainView.translatesAutoresizingMaskIntoConstraints = false

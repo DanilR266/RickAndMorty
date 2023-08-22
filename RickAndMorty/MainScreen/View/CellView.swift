@@ -12,7 +12,6 @@ class CharacterCell: UICollectionViewCell {
     
     lazy var image: UIImageView = {
         let imageView = UIImageView()
-//        imageView.load(url: URL(string: "https://rickandmortyapi.com/api/character/avatar/2.jpeg")!)
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true

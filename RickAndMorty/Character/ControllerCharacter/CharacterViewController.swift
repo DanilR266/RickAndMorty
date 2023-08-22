@@ -24,7 +24,6 @@ class CharacterViewController: UIViewController, UICollectionViewDataSource, UIC
     
     var episodes: [WelcomeN?] = []
     
-//    var myCollectionView: UICollectionView!
     var characterView = CharacterView()
     var request = RequestOrigin()
     var navigationControllerReference: UINavigationController?
@@ -39,7 +38,6 @@ class CharacterViewController: UIViewController, UICollectionViewDataSource, UIC
         episodes = []
         request.episodeCount { [weak self] value in
             DispatchQueue.main.async {
-//                self?.episode = value
                 self?.loadViewIfNeeded()
                 self?.characterView.myCollectionView.reloadData()
                 self?.characterView.heightAnchor.constraint(equalToConstant: 700 + 100*Double(self?.episodeCount ?? 0)).isActive = true
@@ -69,7 +67,6 @@ class CharacterViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     func setUpUI() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-//        scrollView.contentSize = CGSize(width: view.bounds.width, height: 2300)
         scrollView.isScrollEnabled = true
         scrollView.showsVerticalScrollIndicator = true
         view.addSubview(scrollView)
@@ -77,7 +74,6 @@ class CharacterViewController: UIViewController, UICollectionViewDataSource, UIC
         scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-//        scrollView.heightAnchor.constraint(equalToConstant: 9000).isActive = true
         scrollView.backgroundColor = .backgroundColor
         scrollView.addSubview(characterView)
         
@@ -86,7 +82,7 @@ class CharacterViewController: UIViewController, UICollectionViewDataSource, UIC
         characterView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
         characterView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
         characterView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-//        characterView.heightAnchor.constraint(equalToConstant: 540+300*Double(episode ?? 0)).isActive = true
+
         
         
         
@@ -167,7 +163,3 @@ extension UIViewController
     ])
   }
 }
-//259322833
-
-
-//https://rickandmortyapi.com/api/episode

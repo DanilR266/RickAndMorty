@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E4A2C442A938779007D57C9 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A2C432A938779007D57C9 /* SwiftUIView.swift */; };
 		7E4A2C462A93D506007D57C9 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A2C452A93D506007D57C9 /* CharacterViewController.swift */; };
 		7E4A2C482A93D50D007D57C9 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A2C472A93D50D007D57C9 /* CharacterView.swift */; };
 		7E4A2C4A2A93D513007D57C9 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A2C492A93D513007D57C9 /* CharacterModel.swift */; };
@@ -26,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7E4A2C432A938779007D57C9 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		7E4A2C452A93D506007D57C9 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		7E4A2C472A93D50D007D57C9 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 		7E4A2C492A93D513007D57C9 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 				7E83EF612A8FC04300C772FF /* Assets.xcassets */,
 				7E83EF632A8FC04300C772FF /* LaunchScreen.storyboard */,
 				7E83EF662A8FC04300C772FF /* Info.plist */,
-				7E4A2C432A938779007D57C9 /* SwiftUIView.swift */,
 			);
 			path = RickAndMorty;
 			sourceTree = "<group>";
@@ -233,7 +230,6 @@
 			files = (
 				7E83EF5D2A8FC04200C772FF /* MainViewController.swift in Sources */,
 				7E83EF802A909F1200C772FF /* MainVIew.swift in Sources */,
-				7E4A2C442A938779007D57C9 /* SwiftUIView.swift in Sources */,
 				7E83EF852A90A0B800C772FF /* Extension Color.swift in Sources */,
 				7E4A2C482A93D50D007D57C9 /* CharacterView.swift in Sources */,
 				7E83EF592A8FC04200C772FF /* AppDelegate.swift in Sources */,

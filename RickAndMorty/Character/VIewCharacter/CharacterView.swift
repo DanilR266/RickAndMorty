@@ -41,6 +41,14 @@ class CharacterView: UIView {
         label.textColor = .white
         return label
     }()
+    lazy var episodesLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 17, weight: .semibold)
+        label.text = "Episodes"
+        label.textAlignment = .left
+        label.textColor = .white
+        return label
+    }()
     lazy var originLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -149,6 +157,7 @@ class CharacterView: UIView {
         addSubview(rectangleView)
         addSubview(originLabel)
         addSubview(rectanglePlanetView)
+        addSubview(episodesLabel)
         
         avatar.translatesAutoresizingMaskIntoConstraints = false
         avatar.widthAnchor.constraint(equalToConstant: 148).isActive = true
@@ -212,9 +221,14 @@ class CharacterView: UIView {
         planetName.leadingAnchor.constraint(equalTo: rectangleOriginView.trailingAnchor, constant: 16).isActive = true
         planetType.bottomAnchor.constraint(equalTo: rectanglePlanetView.bottomAnchor, constant: -16).isActive = true
         planetType.leadingAnchor.constraint(equalTo: rectangleOriginView.trailingAnchor, constant: 16).isActive = true
+        
+        episodesLabel.translatesAutoresizingMaskIntoConstraints = false
+        episodesLabel.leadingAnchor.constraint(equalTo: originLabel.leadingAnchor).isActive = true
+        episodesLabel.topAnchor.constraint(equalTo: rectangleOriginView.bottomAnchor, constant: 30).isActive = true
         addSubview(myCollectionView)
+        
         myCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        myCollectionView.topAnchor.constraint(equalTo: rectangleView.bottomAnchor, constant: 10).isActive = true
+        myCollectionView.topAnchor.constraint(equalTo: episodesLabel.bottomAnchor, constant: 10).isActive = true
         myCollectionView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         myCollectionView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
     }
