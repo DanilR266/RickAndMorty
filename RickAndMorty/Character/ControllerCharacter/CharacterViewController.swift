@@ -34,8 +34,8 @@ class CharacterViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     override func viewDidLoad() {
+        print("ViewDid")
         super.viewDidLoad()
-        episodes = []
         request.episodeCount { [weak self] value in
             DispatchQueue.main.async {
                 self?.loadViewIfNeeded()
@@ -121,6 +121,8 @@ class CharacterViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     @objc private func backButtonTapped() {
+        print("BackButton")
+        self.episodes = []
         navigationControllerReference?.popViewController(animated: true)
     }
     
@@ -131,18 +133,21 @@ class CharacterViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EpisodeCell", for: indexPath) as! EpisodeCell
-        cell.label.text = episodes[indexPath.item]?.name
-        let inputString = episodes[indexPath.item]?.episode ?? ""
-
-        let startIndex = inputString.index(inputString.startIndex, offsetBy: 1)
-        let endIndex = inputString.index(inputString.startIndex, offsetBy: 3)
-        let episodeSubstring1 = inputString[startIndex..<endIndex]
-
-        let startIndex2 = inputString.index(inputString.endIndex, offsetBy: -2)
-        let endIndex2 = inputString.endIndex
-        let episodeSubstring2 = inputString[startIndex2..<endIndex2]
-        cell.episode.text = "Episode: \(episodeSubstring2), Season: \(episodeSubstring1)"
-        cell.date.text = episodes[indexPath.item]?.airDate
+        print(indexPath.item)
+        if episodes.count == episodeCount {
+            cell.label.text = episodes[indexPath.item]?.name ?? ""
+            let inputString = episodes[indexPath.item]?.episode ?? ""
+            
+            let startIndex = inputString.index(inputString.startIndex, offsetBy: 1)
+            let endIndex = inputString.index(inputString.startIndex, offsetBy: 3)
+            let episodeSubstring1 = inputString[startIndex..<endIndex]
+            
+            let startIndex2 = inputString.index(inputString.endIndex, offsetBy: -2)
+            let endIndex2 = inputString.endIndex
+            let episodeSubstring2 = inputString[startIndex2..<endIndex2]
+            cell.episode.text = "Episode: \(episodeSubstring2), Season: \(episodeSubstring1)"
+            cell.date.text = episodes[indexPath.item]?.airDate
+        }
         return cell
     }
 }
