@@ -6,14 +6,17 @@
 //
 
 import UIKit
+import SwiftUI
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     var myCollectionView: UICollectionView?
     var mainView = MainView()
     var request = RequestCahracters()
     var arrayNames: [Result?] = []
     
     override func viewDidLoad() {
+        backgroundView()
+        print("dc")
         super.viewDidLoad()
         request.request { [weak self] values in
             DispatchQueue.main.async {
@@ -38,7 +41,23 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         view.backgroundColor = .backgroundColor
         view.addSubview(mainView)
         setUpConstraits()
+        let yourBackImage = UIImage(named: "back_button_image")
+        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
+        self.navigationController?.navigationBar.backItem?.title = "Custom"
     }
+//    let hostingController = UIHostingController(rootView: MySwiftUIView())
+//    func openSwiftUIOnboardingScreen() {
+//        addChild(hostingController)
+//        view.addSubview(hostingController.view)
+//
+//        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+//        hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//        hostingController.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//        hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//        hostingController.didMove(toParent: self)
+//    }
     
     private func setUpConstraits() {
         mainView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,6 +80,23 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.label.text = arrayNames[indexPath.item]?.name
         cell.image.load(url: URL(string: arrayNames[indexPath.item]!.image)!)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+        let characterViewController = CharacterViewController()
+        characterViewController.characterName = arrayNames[indexPath.item]?.name
+        characterViewController.image = arrayNames[indexPath.item]?.image
+        characterViewController.navigationControllerReference = navigationController
+        characterViewController.status = arrayNames[indexPath.item]?.status.rawValue
+        characterViewController.species = arrayNames[indexPath.item]?.species.rawValue
+        characterViewController.type = arrayNames[indexPath.item]?.type
+        characterViewController.gender = arrayNames[indexPath.item]?.gender.rawValue
+        characterViewController.urlOrigin = arrayNames[indexPath.item]?.origin.url
+        characterViewController.episodeCount = arrayNames[indexPath.item]?.episode.count
+        characterViewController.episode = arrayNames[indexPath.item]?.episode ?? []
+        navigationController?.pushViewController(characterViewController, animated: true)
+
     }
 
 }
