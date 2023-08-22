@@ -54,7 +54,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         mainView.heightAnchor.constraint(equalToConstant: 67).isActive = true
         mainView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
         myCollectionView!.topAnchor.constraint(equalTo: mainView.bottomAnchor, constant: 10).isActive = true
-        myCollectionView?.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        myCollectionView?.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 10).isActive = true
+        myCollectionView?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         myCollectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
