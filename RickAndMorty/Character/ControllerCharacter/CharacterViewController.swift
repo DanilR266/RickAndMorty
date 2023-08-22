@@ -40,7 +40,7 @@ class CharacterViewController: UIViewController, UICollectionViewDataSource, UIC
             DispatchQueue.main.async {
                 self?.loadViewIfNeeded()
                 self?.characterView.myCollectionView.reloadData()
-                self?.characterView.heightAnchor.constraint(equalToConstant: 700 + 100*Double(self?.episodeCount ?? 0)).isActive = true
+                self?.characterView.heightAnchor.constraint(equalToConstant: 750 + 100*Double(self?.episodeCount ?? 0)).isActive = true
             }
         }
         for i in episode {
@@ -63,7 +63,7 @@ class CharacterViewController: UIViewController, UICollectionViewDataSource, UIC
 
     }
     override func viewDidAppear(_ animated: Bool) {
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 700 + 100*Double(episodeCount ?? 0))
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 750 + 100*Double(episodeCount ?? 0))
     }
     func setUpUI() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
